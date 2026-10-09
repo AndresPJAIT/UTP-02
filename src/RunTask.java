@@ -1,8 +1,8 @@
-public class ExtThread extends Thread {
+public class RunTask implements Runnable{
     long objCreationTime;
     long firstInstruction;
 
-    public ExtThread() {
+    public RunTask() {
         this.objCreationTime = System.nanoTime();
     }
 
@@ -14,5 +14,4 @@ public class ExtThread extends Thread {
     public void run() {
         this.firstInstruction = System.nanoTime();
     }
-
 }
