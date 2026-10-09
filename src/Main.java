@@ -1,6 +1,35 @@
 public class Main {
 
     public static void main(String[] args){
+        final int warmup = 5000;
+        final int N = 50000;
+
+        for(int i = 0; i < warmup ; i++){
+            measureExt();
+            measureRun();
+        }
+
+        long[] exttimes = new long[N];
+        long[] runtimes = new long[N];
+        long extaverage = 0;
+        long runaverage = 0;
+
+        for(int i = 0; i < N ; i++){
+            exttimes[i] = measureExt();
+            runtimes[i] = measureRun();
+
+            extaverage += exttimes[i];
+            runaverage += runtimes[i];
+
+        }
+
+        extaverage = extaverage / N;
+        runaverage = runaverage / N;
+
+        System.out.println(extaverage);
+        System.out.println(runaverage);
+
+
 
     }
 
@@ -35,4 +64,6 @@ public class Main {
 
         return runtask1.getTime();
     }
+
+
 }
