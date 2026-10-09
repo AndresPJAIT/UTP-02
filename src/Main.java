@@ -21,5 +21,18 @@ public class Main {
 
     public static long measureRun() {
 
+        RunTask runtask1 = new RunTask();
+
+        Thread threadrun1 = new Thread(runtask1);
+
+        threadrun1.start();
+
+        try {
+            threadrun1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return runtask1.getTime();
     }
 }
