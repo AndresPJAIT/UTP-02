@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args){
@@ -29,8 +31,15 @@ public class Main {
         System.out.println(extaverage);
         System.out.println(runaverage);
 
+        Arrays.sort(exttimes);
+        Arrays.sort(runtimes);
 
+        //Calculating P50 (As it has pair size, average of the two of the middle
+        long p50ext = (exttimes[N / 2] + exttimes[(N / 2) - 1]) / 2;
+        long p50run = (runtimes[N / 2] + runtimes[(N / 2) - 1]) / 2;
 
+        System.out.println(p50ext);
+        System.out.println(p50run);
     }
 
     public static long measureExt() {
